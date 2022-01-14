@@ -37,7 +37,7 @@ public class evenNoOfDigits {
             num=num*-1;
         }
         if(num==0){
-            return -1;
+            return 1;
         }
         int c=0;
         int temp=num;
