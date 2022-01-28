@@ -26,9 +26,14 @@ public class infiniteArray {
         int start = 0;
         int end = 1;
         while(target > arr[end]){
-            int temp = end + 1;
-            end = end + (end - start + 1) * 2;
-            start = temp;
+            //USE THIS.
+            start = end;
+            end = 2 * end;
+
+            //OR USE THIS.
+//            int temp = end + 1;
+//            end = end + (end - start + 1) * 2;
+//            start = temp;
         }
         return bs(arr, target, start, end);
     }
