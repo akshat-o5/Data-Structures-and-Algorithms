@@ -1,3 +1,5 @@
+// SUM OF DIGITS OF A NUMBER USING RECURSION
+
 package com.akshat;
 
 public class Sum_of_digits {
