@@ -10,6 +10,7 @@ public class evenNoOfDigits {
         int[] arr = {12,345,2,6,7896};
 
         System.out.println(findNumbers(arr));
+        System.out.println(findNumbers2(arr));
 
     }
 
@@ -45,6 +46,16 @@ public class evenNoOfDigits {
             temp =num%10;
             c++;
             num=num/10;
+        }
+        return c;
+    }
+     static int findNumbers2(int[] nums){
+        int c = 0;
+        for (int i = 0; i < nums.length; i++){
+            String j = Integer.toString(nums[i]);
+            if (j.length() % 2 == 0){
+                c++;
+            }
         }
         return c;
     }
