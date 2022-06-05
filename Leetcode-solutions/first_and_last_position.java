@@ -13,9 +13,32 @@ public class first_and_last_position {
         int target = 8;
 
         System.out.println(Arrays.toString(searchRange(nums, target)));
+        System.out.println(Arrays.toString(search1(nums, target)));
+
 
     }
+    // BRUTEFORCE SOLUTION
+    static int[] search1(int[] arr, int target){
+        int[] ans = {-1, -1};
+        if (arr.length == 0){
+            return new int[] {-1, -1};
+        }
+        for (int i=0; i<arr.length; i++){
+            if (arr[i] == target){
+                ans[0] = i;
+                break;
+            }
+        }
+        for (int j=arr.length-1; j>=0; j--){
+            if (arr[j] == target){
+                ans[1] = j;
+                break;
+            }
+        }
+        return ans;
+    }
 
+    // USING BINARY SEARCH (OPTIMIZED SOLUTION)
     static int[] searchRange(int[] nums, int target) {
         int[] ans = {-1, -1};
         int start = bs(nums, target, true);
