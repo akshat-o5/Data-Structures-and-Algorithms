@@ -13,6 +13,21 @@ public class peakIndexInTheMountainArray {
 
     }
 
+    // BRUTEFORCE SOLUTION: JUST FIND THE MAXIMUM ELEMENT IN AN ARRAY
+    static int idx1(int[] arr){
+        if (arr.length == 0){
+            return -1;
+        }
+        int max = arr[0];
+        for (int i=0; i< arr.length; i++){
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+    // OPTIMIZED SOLUTION
     static int peakIndexInMountainArray(int[] arr){
         int start = 0;
         int end = arr.length - 1;
