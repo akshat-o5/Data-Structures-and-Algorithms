@@ -1,5 +1,6 @@
-Linked List Cycle
-URL : https://leetcode.com/problems/linked-list-cycle/
+// Linked List Cycle 
+// URL : https://leetcode.com/problems/linked-list-cycle/
+// Amazon and Microsoft
 
 /**
  * Definition for singly-linked list.
