@@ -1,0 +1,30 @@
+// Google Question
+// Happy Number
+// URL: https://leetcode.com/problems/happy-number/
+
+class Solution {
+    public boolean isHappy(int n) {
+        int fast = n;
+        int slow =  n;
+        do{
+            // Move slow pointer 1 time
+            slow = findSquare(slow);
+            // Move fast pointer two times
+            fast = findSquare(findSquare(fast));
+        } while (fast != slow);
+        if (slow == 1){
+            return true;
+        }
+        return false;
+    }
+    
+    private int findSquare(int n){
+        int ans = 0;
+        while (n > 0){
+            int rem = n % 10;
+            ans+= rem * rem;
+            n = n / 10;
+        }
+        return ans;
+    }
+}
