@@ -1,0 +1,17 @@
+// https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem?isFullScreen=true
+
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
+    if(position == 0){
+        llist=llist->next;
+        return llist;
+    }
+    SinglyLinkedListNode* curr = llist;
+    SinglyLinkedListNode*prev = NULL;
+    while(position != 0){
+        prev = curr;
+        curr = curr->next;
+        position--;
+    }
+    prev->next = curr->next;
+    return llist;
+}
