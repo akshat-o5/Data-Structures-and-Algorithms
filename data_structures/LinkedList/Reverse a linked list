@@ -1,0 +1,19 @@
+// https://www.hackerrank.com/challenges/reverse-a-linked-list/problem?isFullScreen=true
+
+SinglyLinkedListNode* reverse(SinglyLinkedListNode* llist) {
+    SinglyLinkedListNode *start = llist;
+    SinglyLinkedListNode *end = llist;
+    vector<int> v;
+    while(end!=NULL){
+        v.push_back(end->data);
+        end = end->next;
+    }
+    reverse(v.begin(), v.end());
+    int i=0;  
+    while(start!=NULL){
+        start->data = v[i];
+        i++;
+        start = start->next;
+    }  
+    return llist;
+}
