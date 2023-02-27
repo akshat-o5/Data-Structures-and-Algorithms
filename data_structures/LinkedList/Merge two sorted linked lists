@@ -1,0 +1,21 @@
+// https://www.hackerrank.com/challenges/merge-two-sorted-linked-lists/problem?isFullScreen=true
+
+SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
+
+    if (!head1)
+        return head2;
+    if (!head2)
+        return head1;
+    SinglyLinkedListNode* mergedHead;
+    if (head1->data < head2->data)
+    {
+        mergedHead = head1;
+        mergedHead->next = mergeLists(head1->next, head2);
+    }
+    else{
+        mergedHead = head2;
+        mergedHead->next = mergeLists(head2->next, head1);
+    }
+    return mergedHead;
+
+}
