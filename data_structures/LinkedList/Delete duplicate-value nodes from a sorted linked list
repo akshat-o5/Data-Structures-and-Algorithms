@@ -1,0 +1,20 @@
+// https://www.hackerrank.com/challenges/delete-duplicate-value-nodes-from-a-sorted-linked-list/problem?isFullScreen=true
+
+SinglyLinkedListNode* removeDuplicates(SinglyLinkedListNode* llist) {
+    if(llist == NULL){
+        return NULL;
+    }
+    SinglyLinkedListNode* curr = llist;
+    while(curr != NULL){
+        if((curr->next != NULL) && curr->data == curr->next->data){
+            SinglyLinkedListNode* node_next = curr->next->next;
+            SinglyLinkedListNode* node_to_delete = curr->next;
+            delete(node_to_delete);
+            curr->next = node_next;
+        }
+        else{
+            curr = curr->next;
+        }
+    }
+    return llist;
+}
