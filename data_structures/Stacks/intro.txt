@@ -1,0 +1,84 @@
+-> LIFO : Last In First Out
+
+-> Stack is a type of data structure, jisme hum jo cheez last me andar daalte hai, woh sabse pehele bahar nikalti hai.
+
+-> Insert data => push
+-> Remove data => pop
+-> Access topmost data => peek
+
+-> Creation of stack:
+    stack<int> s;
+
+-> There are two methods for implementation of of stacks :
+            => By using Linked List
+            => By using Arrays     
+
+-> Implementation of Stack using Array:
+class Stack{
+
+    //properties
+    public:
+    int *arr;
+    int top;
+    int size;
+
+    //functions
+
+    // Constructor for creating an empty stack
+    Stack(int size){
+        this -> size = size;
+        arr = new int(size);
+        top = -1;
+    }
+
+    // Inserting an element in stack
+    void push(int element){
+        if(size - top > 1){
+            // Space available
+            top++;
+            arr[top] = element;
+        }
+        else{
+            // Space not available
+            cout<<"Stack OverFlow"<<endl;
+        }
+    }
+
+    // Removing an element from stack
+    void pop(){
+        if(top >= 0){
+            // An element is present
+            top--;
+        }
+        else{
+            // Stack is empty
+            cout<<"Stack UnderFlow"<<endl;
+        }
+    }
+
+    // Accessing top-most element
+    int peek(){
+        if(top >= 0 ){
+            // Element is present
+            return arr[top];
+        }
+        else{
+            // Stack is empty
+            cout<<"Stack Underflow"<<endl;
+            return -1;
+        }
+    }
+
+    bool isEmpty(){
+        if(top == -1){
+            // Stack is empty
+            return true;
+        }
+        else{
+            // Stack is not Empty
+            return false; 
+        }
+    }
+
+}; 
+
