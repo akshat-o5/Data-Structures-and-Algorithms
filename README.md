@@ -5,4 +5,4 @@ If there is a seperate question, then the discription of the question will also 
 This repo is free to contribute and report bugs(if any).
                      
                      
-                                           THANK YOU
+                                           THANK YOU!
