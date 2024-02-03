@@ -70,57 +70,62 @@
 
 // Print All
 
-// #include<iostream>
-// #include<vector>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 
-// using namespace std;
+using namespace std;
 
-// void printf(int index, vector<int> ans, vector<int> vec, int n, int s, int k){
-//     if(index==n){
-//         if (s==k)
-//         {
-//             for (int i = 0; i < ans.size(); i++)
-//             {
-//                 cout<<ans[i]<<" ";
-//             }
-//            cout<<endl; 
-//         }
-//         return;
-//     }
-//     ans.push_back(vec[index]);
-//     s+=vec[index];
-//     printf(index+1, ans, vec, n, s, k);
-//     ans.pop_back();
-//     s-=vec[index];
-//     printf(index+1, ans, vec, n, s, k);
-// }
+void printf(int index, vector<int> ans, vector<int> vec, int n, int s, int k){
+    if(index==n){
+        if (s==k)
+        {
+            for (int i = 0; i < ans.size(); i++)
+            {
+                cout<<ans[i]<<" ";
+            }
+           cout<<endl; 
+        }
+        return;
+    }
+    ans.push_back(vec[index]);
+    s+=vec[index];
+    printf(index+1, ans, vec, n, s, k);
+    ans.pop_back();
+    s-=vec[index];
+    printf(index+1, ans, vec, n, s, k);
+}
 
-// int main()
-// {
-//     vector<int> vec;
-//     vec.push_back(1);
-//     vec.push_back(2);
-//     vec.push_back(1);
+int main()
+{
+    vector<int> vec;
+    vec.push_back(1);
+    vec.push_back(2);
+    vec.push_back(2);
+    vec.push_back(1);
+    vec.push_back(1);
 
-//     for (int i = 0; i < vec.size(); i++)
-//     {
-//         cout<<vec[i]<<" ";
-//     }
-//     cout<<endl;
+    sort(vec.begin(), vec.end());
 
-//     vector<int> ans;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        cout<<vec[i]<<" ";
+    }
+    cout<<endl;
 
-//     int k=2;
+    vector<int> ans;
 
-//     cout<<endl;
+    int k=4;
+
+    cout<<endl;
     
-//     cout<<"Subsequences= "<<endl;
+    cout<<"Subsequences= "<<endl;
 
-//     printf(0, ans, vec, 3, 0, k);
+    printf(0, ans, vec, 5, 0, k);
     
 
-//     return 0;
-// }
+    return 0;
+}
 
 
 
