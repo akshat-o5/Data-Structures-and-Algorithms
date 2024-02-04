@@ -5,9 +5,9 @@ void rowSum(int arr[][3], int row, int col){
     for(int i=0; i<row; i++){
         int sum=0;
         for(int j=0; j<col; j++){
-            sum+=arr[i][j];
+            sum+=arr[j][i];
         }
-        cout<<sum<<" ";                         // 6 15 24
+        cout<<sum<<" ";                         // 12 15 18
     }
     cout<<endl;
 }
