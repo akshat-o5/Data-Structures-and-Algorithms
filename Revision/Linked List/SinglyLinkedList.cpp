@@ -25,6 +25,7 @@ class Node{
 
 // traversing a singly linked list
 void print(Node* &head){
+    int count = 0;
     if (head==NULL)
     {
         cout<<"List is Empty"<<endl;
@@ -32,10 +33,12 @@ void print(Node* &head){
     Node* temp = head;
     while (temp!=NULL)
     {
-        cout<<temp->data<<" ";
+        cout<<temp->data<<" -> ";
         temp = temp->next;
+        count++;
     }
-    cout<<endl;
+    cout<<"NULL"<<endl;
+    cout<<"Length of Linked List is: "<<count<<endl; 
 }
 
 // insert at head
