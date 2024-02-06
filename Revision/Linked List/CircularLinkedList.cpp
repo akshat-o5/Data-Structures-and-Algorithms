@@ -56,6 +56,35 @@ void insertNode(Node* &tail, int element, int data){
     }
 }
 
+// deleting node in a linked list
+void deleteNode(Node* &tail, int element){
+    //empty list
+    if(tail==NULL){
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    else{
+        Node* prev = tail;
+        Node* curr = prev->next;
+        while(curr->data != element){
+            prev = curr;
+            curr = curr->next;
+        }
+        prev->next = curr->next;
+        // 1 node
+        if(curr == prev){
+            tail = NULL;
+            return;
+        }
+        // >=2 node
+        else if(tail == curr){
+            tail = prev;
+        }
+        curr->next = NULL;
+        delete curr;
+    }
+}
+
 int main()
 {
     
@@ -80,6 +109,18 @@ int main()
     cout<<"tail = "<<tail->data<<endl<<endl;
 
     insertNode(tail, 8, 9);
+    traverse(tail);
+    cout<<"tail = "<<tail->data<<endl<<endl;
+    
+    deleteNode(tail, 9);
+    traverse(tail);
+    cout<<"tail = "<<tail->data<<endl<<endl;
+
+    deleteNode(tail, 7);
+    traverse(tail);
+    cout<<"tail = "<<tail->data<<endl<<endl;
+
+    deleteNode(tail, 5);
     traverse(tail);
     cout<<"tail = "<<tail->data<<endl<<endl;
 
