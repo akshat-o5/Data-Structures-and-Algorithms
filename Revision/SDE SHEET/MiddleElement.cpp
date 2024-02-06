@@ -25,6 +25,8 @@ class Solution{
         return count;
     }
     
+
+    // APPROACH 1
     int getMiddle(Node *head)
     {
         // Your code here
@@ -43,4 +45,34 @@ class Solution{
         return temp->data;
         
     }
+
+
+        // APPROACH 2 -> TWO POINTERS
+        int getMiddle(Node *head)
+    {
+        
+        if(head==NULL||head->next==NULL){
+            return head->data;
+        }
+        
+        if(head->next->next == NULL){
+            return head->next->data;
+        }
+        
+        Node* slow = head;
+        Node* fast = head->next;
+        
+        while(fast!=NULL){
+            fast = fast->next;
+            if(fast!=NULL){
+                fast = fast->next;
+            }
+            slow = slow->next;
+        }
+        
+        return slow->data;
+        
+    }
+
+
 };
