@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
 
 class Node{
@@ -14,8 +15,8 @@ class Node{
         }
 };
 
-// creating a Binary Tree
-Node* buildTree(Node* root){
+// Creating a Binary Tree
+Node* buildTree(Node* &root){
     cout<<"Enter the data: "<<endl;
     int data;
     cin>>data;
@@ -30,11 +31,72 @@ Node* buildTree(Node* root){
     return root;
 }
 
+// Level Order Traversl
+void levelOrder(Node* root) {
+    queue<Node*> q;
+    q.push(root);
+    q.push(NULL);
+    while(!q.empty()) {
+        Node* temp = q.front();
+        q.pop();
+        if(temp == NULL) { 
+            cout << endl;
+            if(!q.empty()) { 
+                q.push(NULL);
+            }  
+        }
+        else{
+            cout << temp -> data << " ";
+            if(temp ->left) {
+                q.push(temp ->left);
+            }
+
+            if(temp ->right) {
+                q.push(temp ->right);
+            }
+        }
+    }
+}
+
+
+// In Order Traversal
+void inOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    inOrder(root->left);
+    cout<<root->data<<" ";
+    inOrder(root->right);
+}    
+
+// Pre Order Traversal
+void preOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    cout<<root->data<<" ";
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+// Post Order Traversal
+void postOrder(Node* root){
+    if(root == NULL){
+        return;
+    }
+    preOrder(root->left);
+    preOrder(root->right);
+    cout<<root->data<<" ";
+}
+
 int main()
 {
 
     Node* root = NULL;
+    
     buildTree(root);
+
+    levelOrder(root);
 
     return 0;
 }
