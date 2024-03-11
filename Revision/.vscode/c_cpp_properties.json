@@ -18,8 +18,10 @@
             "browse": {
                 "path": [
                     "#include <bits/stdc++.h>"
-                ]
-            }
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "mergeConfigurations": true
         }
     ],
     "version": 4
