@@ -11,6 +11,8 @@ using namespace std;
 // User function Template for C++
 class Solution {
 public:
+
+    // Using Top Down Approach Starts
     int dpSolve(int n, vector<int>& dpVec) {
         if (n == 0 || n == 1) {
             return n;
@@ -27,6 +29,19 @@ public:
         vector<int> dpVec(n + 1, -1);
         return dpSolve(n, dpVec);
     }
+    // Using Top Down Approach Ends
+
+    // Using Bottom Up Approach Starts
+    int nthFibonacci(int n){
+        vector<int> vec(n+1);
+        vec[1]=1;
+        vec[0]=0;
+        for(int i=2; i<=n; i++){
+            vec[i] = vec[i-1] + vec[i-2];
+        }
+        return vec[n];
+    }
+    // Using Bottom Up Approach Ends
 };
 
 //{ Driver Code Starts.
