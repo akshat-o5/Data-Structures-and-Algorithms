@@ -27,11 +27,26 @@ class Solution {
         dp[N] = cost[N] + min(solve(dp, cost, N-1), solve(dp, cost, N-2));
         return dp[N];
     }
+
+        // Bottom Up Approach -> Tabulation
+    int solve2(vector<int>&cost ,int N){
+        vector<int> dp(N+1);
+        dp[1] = cost[1];
+        dp[0] = cost[0];
+        for(int i=2; i<N; i++){
+            dp[i] = cost[i] + min(dp[i-1], dp[i-2]);
+        }
+        return min(dp[N-1], dp[N-2]);
+    }
     
     int minCostClimbingStairs(vector<int>&cost ,int N) {
         //Write your code here
-        vector<int> dp(N+1, -1);
-        int ans = min(solve(dp, cost, N-1), solve(dp, cost, N-2));
+
+        // vector<int> dp(N+1, -1);
+        // int ans = min(solve(dp, cost, N-1), solve(dp, cost, N-2));
+        // return ans;
+
+        int ans = solve2(cost, N);
         return ans;
     }
 };
