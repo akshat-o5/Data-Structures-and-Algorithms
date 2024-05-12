@@ -30,16 +30,34 @@ class Solution{
         }
         return mini;
     }	
+
+    // Bottom Up Approach || Tabulation
+    int solve1(vector<int> &coins, int M, int sum) {
+        vector<int> dp(sum+1, INT_MAX);
+        dp[0] = 0;
+        for(int i=1; i<=sum; i++) {
+            for(int j=0; j<M; j++) {
+                if(i-coins[j] >= 0 && dp[i-coins[j]] != INT_MAX)
+                    dp[i] = min(dp[i], 1+dp[i-coins[j]]);
+            }
+        }
+        if(dp[sum]==INT_MAX)
+            return -1;
+        return dp[sum];
+    }    
 	
 	int minCoins(vector<int> &coins, int M, int V) 
 	{ 
 	    // Your code goes here
-	    vector<int> dp(V+1, -1);
-	    int ans = solve(coins, dp, M, V);
-        if(ans==INT_MAX){
-            return -1;
-        }
-        return ans;
+
+	    // vector<int> dp(V+1, -1);
+	    // int ans = solve(coins, dp, M, V);
+        // if(ans==INT_MAX){
+        //     return -1;
+        // }
+        // return ans;
+
+        return solve1(coins, M, V);
 	} 
 	  
 };
